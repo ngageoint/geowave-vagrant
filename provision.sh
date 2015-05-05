@@ -22,13 +22,18 @@ sudo yum -y install git
 # Setup GeoWave
 echo "GeoWave: Cloning..."
 git clone --depth=10 --branch=master https://github.com/ngageoint/geowave.git
+git clone --depth=10 --branch=master https://github.com/ngageoint/geowave-vagrant.git
 cd geowave
+echo "Geowave: Install Dev Tools..."
+cd dev-resources
+mvn clean install
+cd ..
 echo "GeoWave: Building..."
-mvn clean package -pl geowave-deploy -am -P geowave-singlejar -DskipITs=true -DskipTests=true
+mvn clean package -pl deploy -am -P geowave-singlejar -DskipITs=true -DskipTests=true
 
 # Install GeoWave service
 echo "GeoWave: Installing Service..."
-sudo cp /home/vagrant/geowave/vagrant/geowave.sh /etc/init.d/geowave
+sudo cp /home/vagrant/geowave-vagrant/geowave.sh /etc/init.d/geowave
 sudo chmod a+x /etc/init.d/geowave
 sudo chkconfig --add geowave
 sudo service geowave start
