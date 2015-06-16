@@ -1,5 +1,7 @@
 # Install dependencies
 
+sudo yum install -y wget
+
 # Setup JDK
 echo "JDK: Downloading..."
 wget -q --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/7u75-b13/jdk-7u75-linux-x64.rpm -O jdk-7u75-linux-x64.rpm
