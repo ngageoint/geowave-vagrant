@@ -3,7 +3,6 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "chef/centos-6.6"
-  #config.vm.box = "bhosmer/centos6.6-minimal"
   config.vm.hostname = "geowave-vagrant"
   config.vm.host_name = "geowave-vagrant"
   
@@ -23,7 +22,7 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--cpus", 2]
     vb.customize ["modifyvm", :id, "--ioapic", "on"]
     vb.name = "geowave-vagrant"
-#    vb.gui = true
+    vb.gui = true
   end
 
   config.vm.provision :shell, :path => "provision.sh"
