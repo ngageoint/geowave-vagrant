@@ -31,7 +31,7 @@ cd dev-resources
 mvn clean install
 cd ..
 echo "GeoWave: Building..."
-mvn clean package -pl examples -am -P geowave-tools-singlejar -DskipITs=true -DskipTests=true -Dfindbugs.skip=true -DskipFormat=true -Dtools.finalName=geowave-singlejar
+mvn clean package -pl examples -am -P geowave-tools-singlejar -DskipITs=true -DskipTests=true -Dfindbugs.skip=true -Dformatter.skip=true -Dtools.finalName=geowave-singlejar
 
 # Install GeoWave service
 echo "GeoWave: Installing Service..."
